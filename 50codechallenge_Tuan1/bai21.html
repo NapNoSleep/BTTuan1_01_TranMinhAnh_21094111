@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xoay mảng sang phải</title>
+    <script>
+        // Hàm xoay mảng sang phải 1 vị trí
+        function rotateRight(array) {
+            if (array.length === 0) return array; // Nếu mảng rỗng, không làm gì cả
+            let lastElement = array.pop(); // Lấy và loại bỏ phần tử cuối cùng
+            array.unshift(lastElement); // Thêm phần tử đó vào đầu mảng
+            return array;
+        }
+
+        function displayRotatedArray() {
+            const inputArray = document.getElementById("arrayInput").value;
+            const array = inputArray.split(',').map(num => parseInt(num.trim())); // Chuyển chuỗi nhập vào thành mảng số
+
+            if (array.some(isNaN)) {
+                document.getElementById("result").innerText = "Vui lòng nhập mảng hợp lệ.";
+                return;
+            }
+
+            const rotatedArray = rotateRight(array);
+            document.getElementById("result").innerText = `Mảng sau khi xoay sang phải 1 vị trí: [${rotatedArray.join(", ")}]`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Xoay mảng sang phải</h1>
+    <label for="arrayInput">Nhập mảng (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput" placeholder="Ví dụ: 1, 2, 3, 4, 5"><br><br>
+    <button onclick="displayRotatedArray()">Xoay mảng</button>
+    <p id="result"></p>
+</body>
+</html>

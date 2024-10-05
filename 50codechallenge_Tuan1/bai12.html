@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lọc Các Số Dương</title>
+</head>
+<body>
+    <h1>Lọc Các Số Dương Trong Mảng</h1>
+    <p id="result"></p>
+
+    <script>
+        // Hàm lọc các số dương từ mảng
+        function filterPositiveNumbers(arr) {
+            return arr.filter(number => number > 0);
+        }
+
+        // Mảng số
+        const numbers = [-5, 10, -15, 20, -25, 30];
+
+        // Lọc số dương và hiển thị kết quả
+        const positiveNumbers = filterPositiveNumbers(numbers);
+        document.getElementById('result').textContent = `Các số dương trong mảng là: ${positiveNumbers.join(', ')}`;
+    </script>
+</body>
+</html>

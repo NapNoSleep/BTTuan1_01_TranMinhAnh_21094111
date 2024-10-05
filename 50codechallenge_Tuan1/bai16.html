@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số nguyên tố</title>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false; // Số nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+            if (num <= 3) return true;  // 2 và 3 là số nguyên tố
+
+            // Loại bỏ các số chia hết cho 2 hoặc 3
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            // Kiểm tra các số từ 5 đến sqrt(num)
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        function checkPrime() {
+            const num = parseInt(document.getElementById("number").value);
+            const result = isPrime(num);
+            document.getElementById("result").innerText = result ? `${num} là số nguyên tố` : `${num} không phải là số nguyên tố`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Kiểm tra số nguyên tố</h1>
+    <input type="number" id="number" placeholder="Nhập số">
+    <button onclick="checkPrime()">Kiểm tra</button>
+    <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Trung Bình Các Số Trong Mảng</title>
+</head>
+<body>
+    <h1>Tính Trung Bình Các Số Trong Mảng</h1>
+    <p id="result"></p>
+
+    <script>
+        // Mảng số
+        const numbers = [5, 10, 15, 20, 25];
+
+        // Hàm tính trung bình các số trong mảng
+        function calculateAverage(arr) {
+            if (arr.length === 0) return 0; // Tránh chia cho 0 nếu mảng rỗng
+
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum / arr.length;
+        }
+
+        // Tính trung bình và hiển thị kết quả
+        const average = calculateAverage(numbers);
+        document.getElementById('result').textContent = `Trung bình các số trong mảng là: ${average.toFixed(2)}`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm số Fibonacci</title>
+    <script>
+        function fibonacci(n) {
+            if (n <= 1) {
+                return n; // Số Fibonacci thứ 0 là 0, và thứ 1 là 1
+            }
+            return fibonacci(n - 1) + fibonacci(n - 2); // Công thức tính số Fibonacci
+        }
+
+        function inFibonacci(n) {
+            let result = `Số Fibonacci thứ ${n} là: ${fibonacci(n)}`;
+            document.getElementById("result").innerText = result;
+        }
+
+        window.onload = function() {
+            let n = 10; // Bạn có thể thay đổi giá trị của n để tìm số Fibonacci tương ứng
+            inFibonacci(n);
+        }
+    </script>
+</head>
+<body>
+    <h1>Tìm số Fibonacci</h1>
+    <p id="result"></p>
+</body>
+</html>

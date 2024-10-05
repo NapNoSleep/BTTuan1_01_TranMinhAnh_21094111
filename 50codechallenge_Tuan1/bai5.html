@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng từ 1 đến 10</title>
+</head>
+<body>
+    <h1>Tính Tổng Các Số từ 1 đến 10</h1>
+    <p id="ket-qua"></p>
+
+    <script>
+        // Tính tổng các số từ 1 đến 10
+        const n = 10;
+        const tong = (n * (n + 1)) / 2;
+
+        // Hiển thị kết quả
+        document.getElementById('ket-qua').textContent = `Tổng các số từ 1 đến 10 là: ${tong}`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In dãy Fibonacci</title>
+    <script>
+        function inFibonacci() {
+            var n = 10; // Số lượng số Fibonacci cần in ra
+            var fib = [0, 1]; // Khởi tạo mảng với 2 số Fibonacci đầu tiên
+
+            // Tính các số Fibonacci tiếp theo và thêm vào mảng
+            for (var i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+
+            // Hiển thị kết quả lên trang web
+            var output = "10 số Fibonacci đầu tiên: ";
+            for (var i = 0; i < n; i++) {
+                output += fib[i] + " ";
+            }
+
+            document.getElementById("result").innerText = output;
+        }
+
+        window.onload = function() {
+            inFibonacci();
+        }
+    </script>
+</head>
+<body>
+    <h1>In dãy Fibonacci</h1>
+    <p id="result"></p>
+</body>
+</html>

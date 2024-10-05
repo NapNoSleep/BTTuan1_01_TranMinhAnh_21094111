@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phần tử chỉ có trong mảng thứ nhất</title>
+    <script>
+        // Hàm tìm phần tử chỉ có trong mảng thứ nhất
+        function difference(array1, array2) {
+            return array1.filter(item => !array2.includes(item)); // Lọc các phần tử chỉ có trong array1
+        }
+
+        function displayDifference() {
+            const inputArray1 = document.getElementById("arrayInput1").value;
+            const inputArray2 = document.getElementById("arrayInput2").value;
+
+            const array1 = inputArray1.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num)); // Chuyển chuỗi nhập vào thành mảng số
+            const array2 = inputArray2.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num)); // Chuyển chuỗi nhập vào thành mảng số
+
+            const result = difference(array1, array2);
+            document.getElementById("result").innerText = `Các phần tử chỉ có trong mảng thứ nhất: [${result.join(", ")}]`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tìm phần tử chỉ có trong mảng thứ nhất</h1>
+    <label for="arrayInput1">Nhập mảng thứ nhất (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput1" placeholder="Ví dụ: 1, 2, 3"><br><br>
+    <label for="arrayInput2">Nhập mảng thứ hai (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput2" placeholder="Ví dụ: 2, 3, 4"><br><br>
+    <button onclick="displayDifference()">Tìm sự khác biệt</button>
+    <p id="result"></p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Số Lớn Nhất Trong Mảng</title>
+</head>
+<body>
+    <h1>Tìm Số Lớn Nhất Trong Mảng</h1>
+    <p id="result"></p>
+
+    <script>
+        // Hàm tìm số lớn nhất trong mảng
+        function findMaxNumber(arr) {
+            return Math.max(...arr);
+        }
+
+        // Mảng số
+        const numbers = [5, 10, 15, 20, 25];
+
+        // Tìm số lớn nhất và hiển thị kết quả
+        const maxNumber = findMaxNumber(numbers);
+        document.getElementById('result').textContent = `Số lớn nhất trong mảng là: ${maxNumber}`;
+    </script>
+</body>
+</html>

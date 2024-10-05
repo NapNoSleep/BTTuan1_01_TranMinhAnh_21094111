@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo ngược chuỗi</title>
+    <script>
+        // Hàm đảo ngược chuỗi
+        function reverseString(str) {
+            return str.split('').reverse().join(''); // Chia chuỗi thành mảng, đảo ngược và nối lại thành chuỗi
+        }
+
+        function displayReversedString() {
+            const inputString = document.getElementById("stringInput").value;
+            if (inputString === "") {
+                document.getElementById("result").innerText = "Vui lòng nhập chuỗi.";
+                return;
+            }
+
+            const reversedString = reverseString(inputString);
+            document.getElementById("result").innerText = `Chuỗi sau khi đảo ngược: ${reversedString}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Đảo ngược chuỗi</h1>
+    <label for="stringInput">Nhập chuỗi:</label>
+    <input type="text" id="stringInput" placeholder="Nhập chuỗi cần đảo ngược"><br><br>
+    <button onclick="displayReversedString()">Đảo ngược chuỗi</button>
+    <p id="result"></p>
+</body>
+</html>

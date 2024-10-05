@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Cửu Chương</title>
+</head>
+<body>
+    <h1>Bảng Cửu Chương (1 đến 10)</h1>
+    <div id="bang-cuu-chuong"></div>
+
+    <script>
+        const container = document.getElementById('bang-cuu-chuong');
+
+        for (let i = 1; i <= 10; i++) {
+            const tableDiv = document.createElement('div');
+            const title = document.createElement('h2');
+            title.textContent = `Bảng nhân ${i}`;
+            tableDiv.appendChild(title);
+
+            for (let j = 1; j <= 10; j++) {
+                const result = document.createElement('p');
+                result.textContent = `${i} nhân ${j} = ${i * j}`;
+                tableDiv.appendChild(result);
+            }
+
+            container.appendChild(tableDiv);
+        }
+    </script>
+</body>
+</html>

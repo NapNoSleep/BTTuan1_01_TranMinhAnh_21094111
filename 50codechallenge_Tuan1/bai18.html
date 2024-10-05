@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In 100 số nguyên tố đầu tiên</title>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false; // Các số nhỏ hơn hoặc bằng 1 không phải là số nguyên tố
+            if (num <= 3) return true;  // 2 và 3 là số nguyên tố
+
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        function printFirstNPrimes(n) {
+            let primes = [];
+            let num = 2; // Số bắt đầu kiểm tra
+
+            while (primes.length < n) {
+                if (isPrime(num)) {
+                    primes.push(num);
+                }
+                num++;
+            }
+
+            return primes;
+        }
+
+        function displayPrimes() {
+            const primes = printFirstNPrimes(100);
+            const result = `100 số nguyên tố đầu tiên: ${primes.join(", ")}`;
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>In 100 số nguyên tố đầu tiên</h1>
+    <button onclick="displayPrimes()">In ra</button>
+    <p id="result"></p>
+</body>
+</html>

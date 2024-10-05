@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Đổi Fahrenheit Sang Celsius</title>
+</head>
+<body>
+    <h1>Chuyển Đổi Nhiệt Độ</h1>
+    <form id="convert-form">
+        <label for="fahrenheit">Nhập nhiệt độ Fahrenheit:</label>
+        <input type="number" id="fahrenheit" required>
+        <button type="button" onclick="convertToCelsius()">Chuyển Đổi</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        // Hàm chuyển đổi Fahrenheit sang Celsius
+        function convertToCelsius() {
+            const fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
+            if (isNaN(fahrenheit)) {
+                document.getElementById('result').textContent = 'Vui lòng nhập một số hợp lệ.';
+                return;
+            }
+            const celsius = (fahrenheit - 32) * 5/9;
+            document.getElementById('result').textContent = `${fahrenheit}°F bằng ${celsius.toFixed(2)}°C`;
+        }
+    </script>
+</body>
+</html>

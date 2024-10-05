@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng Số Chẵn</title>
+</head>
+<body>
+    <h1>Tính Tổng Các Số Chẵn Lớn Hơn 10 và Nhỏ Hơn 30</h1>
+    <p id="ket-qua"></p>
+
+    <script>
+        // Tính tổng các số chẵn lớn hơn 10 và nhỏ hơn 30
+        let tong = 0;
+        for (let i = 12; i < 30; i += 2) {
+            tong += i;
+        }
+
+        // Hiển thị kết quả
+        document.getElementById('ket-qua').textContent = `Tổng các số chẵn lớn hơn 10 và nhỏ hơn 30 là: ${tong}`;
+    </script>
+</body>
+</html>

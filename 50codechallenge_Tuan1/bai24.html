@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghép hai mảng</title>
+    <script>
+        // Hàm ghép hai mảng
+        function mergeArrays(array1, array2) {
+            return array1.concat(array2); // Sử dụng phương thức concat để ghép mảng
+        }
+
+        function displayMergedArrays() {
+            const inputArray1 = document.getElementById("arrayInput1").value;
+            const inputArray2 = document.getElementById("arrayInput2").value;
+
+            const array1 = inputArray1.split(',').map(num => num.trim()); // Chuyển chuỗi nhập vào thành mảng
+            const array2 = inputArray2.split(',').map(num => num.trim()); // Chuyển chuỗi nhập vào thành mảng
+
+            if (array1.some(val => val === "") || array2.some(val => val === "")) {
+                document.getElementById("result").innerText = "Vui lòng nhập mảng hợp lệ.";
+                return;
+            }
+
+            const mergedArray = mergeArrays(array1, array2);
+            document.getElementById("result").innerText = `Mảng sau khi ghép: [${mergedArray.join(", ")}]`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Ghép hai mảng</h1>
+    <label for="arrayInput1">Nhập mảng thứ nhất (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput1" placeholder="Ví dụ: 1, 2, 3"><br><br>
+    <label for="arrayInput2">Nhập mảng thứ hai (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput2" placeholder="Ví dụ: 4, 5, 6"><br><br>
+    <button onclick="displayMergedArrays()">Ghép mảng</button>
+    <p id="result"></p>
+</body>
+</html>

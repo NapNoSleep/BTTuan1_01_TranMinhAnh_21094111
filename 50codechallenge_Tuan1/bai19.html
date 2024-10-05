@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm số nguyên tố lớn hơn n</title>
+    <script>
+        // Hàm kiểm tra số nguyên tố
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        // Hàm tìm p số nguyên tố lớn hơn n
+        function findPrimesGreaterThanN(n, p) {
+            let primes = [];
+            let num = n + 1; // Bắt đầu kiểm tra từ số lớn hơn n
+
+            while (primes.length < p) {
+                if (isPrime(num)) {
+                    primes.push(num);
+                }
+                num++;
+            }
+
+            return primes;
+        }
+
+        function displayPrimes() {
+            const n = parseInt(document.getElementById("number").value);
+            const p = parseInt(document.getElementById("count").value);
+
+            if (isNaN(n) || isNaN(p) || p <= 0) {
+                document.getElementById("result").innerText = "Vui lòng nhập số hợp lệ.";
+                return;
+            }
+
+            const primes = findPrimesGreaterThanN(n, p);
+            const result = `P (${p}) số nguyên tố đầu tiên lớn hơn ${n} là: ${primes.join(", ")}`;
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tìm số nguyên tố lớn hơn n</h1>
+    <label for="number">Số nguyên n:</label>
+    <input type="number" id="number" placeholder="Nhập số n"><br><br>
+    <label for="count">Số lượng số nguyên tố p:</label>
+    <input type="number" id="count" placeholder="Nhập số lượng p"><br><br>
+    <button onclick="displayPrimes()">Tìm số nguyên tố</button>
+    <p id="result"></p>
+</body>
+</html>

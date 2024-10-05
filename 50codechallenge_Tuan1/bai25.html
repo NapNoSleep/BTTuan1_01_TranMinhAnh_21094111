@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symmetric Difference</title>
+    <script>
+        // Hàm tính toán sự khác biệt đối xứng giữa hai mảng
+        function symmetricDifference(array1, array2) {
+            const set1 = new Set(array1);
+            const set2 = new Set(array2);
+
+            // Tìm phần tử chỉ có trong set1
+            const onlyInSet1 = [...set1].filter(item => !set2.has(item));
+            // Tìm phần tử chỉ có trong set2
+            const onlyInSet2 = [...set2].filter(item => !set1.has(item));
+
+            // Kết hợp cả hai tập hợp kết quả
+            return [...onlyInSet1, ...onlyInSet2];
+        }
+
+        function displaySymmetricDifference() {
+            const inputArray1 = document.getElementById("arrayInput1").value;
+            const inputArray2 = document.getElementById("arrayInput2").value;
+
+            const array1 = inputArray1.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num)); // Chuyển chuỗi nhập vào thành mảng số
+            const array2 = inputArray2.split(',').map(num => parseInt(num.trim())).filter(num => !isNaN(num)); // Chuyển chuỗi nhập vào thành mảng số
+
+            const result = symmetricDifference(array1, array2);
+            document.getElementById("result").innerText = `Kết quả sự khác biệt đối xứng: [${result.join(", ")}]`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tính toán sự khác biệt đối xứng giữa hai mảng</h1>
+    <label for="arrayInput1">Nhập mảng thứ nhất (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput1" placeholder="Ví dụ: 1, 2, 3"><br><br>
+    <label for="arrayInput2">Nhập mảng thứ hai (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput2" placeholder="Ví dụ: 3, 4, 5"><br><br>
+    <button onclick="displaySymmetricDifference()">Tính toán</button>
+    <p id="result"></p>
+</body>
+</html>

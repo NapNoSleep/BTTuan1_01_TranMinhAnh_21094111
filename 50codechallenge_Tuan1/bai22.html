@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo ngược mảng</title>
+    <script>
+        // Hàm đảo ngược mảng
+        function reverseArray(array) {
+            return array.reverse(); // Sử dụng phương thức reverse để đảo ngược mảng
+        }
+
+        function displayReversedArray() {
+            const inputArray = document.getElementById("arrayInput").value;
+            const array = inputArray.split(',').map(num => parseInt(num.trim())); // Chuyển chuỗi nhập vào thành mảng số
+
+            if (array.some(isNaN)) {
+                document.getElementById("result").innerText = "Vui lòng nhập mảng hợp lệ.";
+                return;
+            }
+
+            const reversedArray = reverseArray(array.slice()); // Sử dụng slice() để tạo bản sao của mảng
+            document.getElementById("result").innerText = `Mảng sau khi đảo ngược: [${reversedArray.join(", ")}]`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Đảo ngược mảng</h1>
+    <label for="arrayInput">Nhập mảng (các phần tử cách nhau bằng dấu phẩy):</label>
+    <input type="text" id="arrayInput" placeholder="Ví dụ: 1, 2, 3, 4, 5"><br><br>
+    <button onclick="displayReversedArray()">Đảo ngược mảng</button>
+    <p id="result"></p>
+</body>
+</html>

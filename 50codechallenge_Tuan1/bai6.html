@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính 10!</title>
+</head>
+<body>
+    <h1>Tính 10!</h1>
+    <p id="ket-qua"></p>
+
+    <script>
+        // Tính 10!
+        let factorial = 1;
+        for (let i = 1; i <= 10; i++) {
+            factorial *= i;
+        }
+
+        // Hiển thị kết quả
+        document.getElementById('ket-qua').textContent = `10! = ${factorial}`;
+    </script>
+</body>
+</html>
